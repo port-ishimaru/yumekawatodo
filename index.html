@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DreamTask</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Noto+Sans+JP:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="stars"></div>
+      <div class="stars2"></div>
+      <div class="stars3"></div>
+
+      <div class="main-content">
+        <div class="title-section">
+          <h1 class="dreamy-title">✨ DreamTask ✨</h1>
+          <p class="dreamy-subtitle">今日も素敵な一日にしましょう</p>
+        </div>
+
+        <!-- タスク追加フォーム -->
+        <div class="task-form-section">
+          <div class="task-form">
+            <input
+              type="text"
+              id="taskInput"
+              placeholder="新しいタスクを入力..."
+              class="task-input"
+            />
+            <select id="categorySelect" class="category-select">
+              <option value="flower">🌸 気軽にできる小さなこと</option>
+              <option value="star">🌟 ちょっと特別・輝かせたいこと</option>
+              <option value="ribbon">🎀 人に関わること</option>
+              <option value="unicorn">🦄 夢・目標に向かうこと</option>
+            </select>
+            <button id="addTaskBtn" class="add-task-btn">追加 ✨</button>
+          </div>
+
+          <!-- 全削除ボタン -->
+          <div class="delete-all-section">
+            <button id="deleteAllBtn" class="delete-all-btn">
+              🧹 すべてのタスクを削除
+            </button>
+          </div>
+        </div>
+
+        <div class="content-cards">
+          <div class="card" data-category="flower">
+            <div class="card-icon">🌸</div>
+            <h3>気軽にできる小さなこと</h3>
+            <p>5分で終わるタスク</p>
+
+            <!-- 進捗バーとレアリティ -->
+            <div class="progress-section">
+              <div class="progress-info">
+                <span class="progress-text"
+                  >進捗: <span class="progress-percentage">0%</span></span
+                >
+                <span class="rarity-badge rarity-common">Common</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" data-category="flower"></div>
+              </div>
+            </div>
+
+            <div class="task-list" id="flowerTasks">
+              <!-- タスクがここに表示されます -->
+            </div>
+          </div>
+
+          <div class="card" data-category="star">
+            <div class="card-icon">🌟</div>
+            <h3>ちょっと特別・輝かせたいこと</h3>
+            <p>やると達成感のあるタスク</p>
+
+            <!-- 進捗バーとレアリティ -->
+            <div class="progress-section">
+              <div class="progress-info">
+                <span class="progress-text"
+                  >進捗: <span class="progress-percentage">0%</span></span
+                >
+                <span class="rarity-badge rarity-common">Common</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" data-category="star"></div>
+              </div>
+            </div>
+
+            <div class="task-list" id="starTasks">
+              <!-- タスクがここに表示されます -->
+            </div>
+          </div>
+
+          <div class="card" data-category="ribbon">
+            <div class="card-icon">🎀</div>
+            <h3>人に関わること</h3>
+            <p>連絡・お礼・ギフト・約束</p>
+
+            <!-- 進捗バーとレアリティ -->
+            <div class="progress-section">
+              <div class="progress-info">
+                <span class="progress-text"
+                  >進捗: <span class="progress-percentage">0%</span></span
+                >
+                <span class="rarity-badge rarity-common">Common</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" data-category="ribbon"></div>
+              </div>
+            </div>
+
+            <div class="task-list" id="ribbonTasks">
+              <!-- タスクがここに表示されます -->
+            </div>
+          </div>
+
+          <div class="card" data-category="unicorn">
+            <div class="card-icon">🦄</div>
+            <h3>夢・目標に向かうこと</h3>
+            <p>長期的なチャレンジや勉強</p>
+
+            <!-- 進捗バーとレアリティ -->
+            <div class="progress-section">
+              <div class="progress-info">
+                <span class="progress-text"
+                  >進捗: <span class="progress-percentage">0%</span></span
+                >
+                <span class="rarity-badge rarity-common">Common</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" data-category="unicorn"></div>
+              </div>
+            </div>
+
+            <div class="task-list" id="unicornTasks">
+              <!-- タスクがここに表示されます -->
+            </div>
+          </div>
+        </div>
+
+        <div class="floating-elements">
+          <div class="floating-heart">💖</div>
+          <div class="floating-star">⭐</div>
+          <div class="floating-sparkle">✨</div>
+          <div class="floating-rainbow">🌈</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 確認モーダル -->
+    <div id="confirmModal" class="modal-overlay">
+      <div class="modal-content">
+        <div class="fairy-container">
+          <div class="fairy">
+            <img
+              src="728a030840595ace5c99062de6aa39cd.jpg"
+              alt="妖精"
+              class="fairy-image"
+            />
+          </div>
+          <div class="fairy-sparkles">
+            <span class="sparkle">✨</span>
+            <span class="sparkle">✨</span>
+            <span class="sparkle">✨</span>
+          </div>
+        </div>
+        <h3 class="modal-title">ほんとうに削除していいの？</h3>
+        <p class="modal-message">すべてのタスクが消えてしまいます...</p>
+        <div class="modal-buttons">
+          <button id="confirmDeleteBtn" class="confirm-btn">はい</button>
+          <button id="cancelDeleteBtn" class="cancel-btn">やめておく</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
